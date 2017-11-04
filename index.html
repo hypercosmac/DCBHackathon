@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    </head>
+
+    <body class="blue-grey darken-3">
+
+    <div class="valign-wrapper" style="width:100%;height:100%;position: absolute;">
+    <div class="valign" style="width:100%;">
+      <div class="container">
+        <center><h4 class="red-text text-darken-4">Enter OTP:</h4></center>
+        <form id="form1">
+        <div class="row">
+        <div class="input-field col s1 offset-s4">
+          <input onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" id="num1" max="9" min="0" maxlength="1" type="number" class="validate white-text" limit="1">
+        </div>
+        <div class="input-field col s1">
+          <input onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" id="num2" type="number" max="9" min="0" class="validate white-text">
+        </div>
+        <div class="input-field col s1">
+          <input onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" id="num3" max="9" min="0" maxlength="1" type="number" class="validate white-text">
+        </div>
+        <div class="input-field col s1">
+          <input onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" id="num4" type="number" max="9" min="0" class="validate white-text">
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+        <div class="row center">
+
+        <button class="waves-effect waves-light center green darken-2 btn" id = "btn1" type="submit" onclick="otp()">Submit</button>
+      </div>  
+  </div>
+
+  <div class="valign-wrapper" style="visibility: hidden; width:100%;height:100%;position: absolute;">
+    <div class="valign" style="width:100%;">
+      <div class="container">
+        <center><h4 class="red-text text-darken-4">Enter Pin:</h4></center>
+        <form id="form2">
+        <div class="row">
+        <div class="input-field col s1 offset-s4">
+          <input onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" id="num5" max="9" min="0" maxlength="1" type="number" class="validate white-text" limit="1">
+        </div>
+        <div class="input-field col s1">
+          <input onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" id="num6" type="number" max="9" min="0" class="validate white-text">
+        </div>
+        <div class="input-field col s1">
+          <input onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" id="num7" max="9" min="0" maxlength="1" type="number" class="validate white-text">
+        </div>
+        <div class="input-field col s1">
+          <input onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" id="num8" type="number" max="9" min="0" class="validate white-text">
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+        <div class="row center">
+
+        <button class="waves-effect waves-light center green darken-2 btn" id = "btn2" type="submit" onclick="pin()">Submit</button>
+      </div>  
+  </div>
+
+       <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+      <script>
+        function maxLengthCheck(object) {
+          if (object.value.length > object.max.length)
+            object.value = object.value.slice(0, object.max.length)
+        }
+          
+        function isNumeric (evt) {
+          var theEvent = evt || window.event;
+          var key = theEvent.keyCode || theEvent.which;
+          key = String.fromCharCode (key);
+          var regex = /[0-9]|\./;
+          if ( !regex.test(key) ) {
+            theEvent.returnValue = false;
+            if(theEvent.preventDefault) theEvent.preventDefault();
+          }
+        }
+        $(function() {
+           $('#num1').keypress(function() {
+              var self = $(this);
+              //wait until character is inserted
+              setTimeout(function() {
+                 if (self.val().length > 0) {
+                    $('#num2').focus();
+                 }
+              }, 1);
+           });
+        });
+        $(function() {
+           $('#num2').keypress(function() {
+              var self = $(this);
+              //wait until character is inserted
+              setTimeout(function() {
+                 if (self.val().length > 0) {
+                    $('#num3').focus();
+                 }
+              }, 1);
+           });
+        });
+        $(function() {
+           $('#num3').keypress(function() {
+              var self = $(this);
+              //wait until character is inserted
+              setTimeout(function() {
+                 if (self.val().length > 0) {
+                    $('#num4').focus();
+                 }
+              }, 1);
+           });
+        });
+        $(function() {
+           $('#num4').keypress(function() {
+              var self = $(this);
+              //wait until character is inserted
+              setTimeout(function() {
+                 if (self.val().length > 0) {
+                    $('#btn1').focus();
+                 }
+              }, 1);
+           });
+        });
+        $(function() {
+           $('#num5').keypress(function() {
+              var self = $(this);
+              //wait until character is inserted
+              setTimeout(function() {
+                 if (self.val().length > 0) {
+                    $('#num6').focus();
+                 }
+              }, 1);
+           });
+        });
+        $(function() {
+           $('#num6').keypress(function() {
+              var self = $(this);
+              //wait until character is inserted
+              setTimeout(function() {
+                 if (self.val().length > 0) {
+                    $('#num7').focus();
+                 }
+              }, 1);
+           });
+        });
+        $(function() {
+           $('#num7').keypress(function() {
+              var self = $(this);
+              //wait until character is inserted
+              setTimeout(function() {
+                 if (self.val().length > 0) {
+                    $('#num8').focus();
+                 }
+              }, 1);
+           });
+        });
+        $(function() {
+           $('#num8').keypress(function() {
+              var self = $(this);
+              //wait until character is inserted
+              setTimeout(function() {
+                 if (self.val().length > 0) {
+                    $('#btn2').focus();
+                 }
+              }, 1);
+           });
+        });
+        function otp() {
+            var a = document.getElementById("num1").value
+            var b = document.getElementById("num2").value
+            var c = document.getElementById("num3").value
+            var d = document.getElementById("num4").value
+            var e = ("" + a + b + c +d)
+            var data = {
+                number : e
+            } 
+            console.log(data);
+        $.ajax({
+          type: "POST",
+         datatype : "json",
+          url: "https://dcb-hackathon-cryogenicplanet.c9users.io/checkOtp",
+          data: data,
+          
+        });
+        }
+    </script>
+    </body>
+  </html>
